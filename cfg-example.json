@@ -1,0 +1,16 @@
+{
+	"port": 2424,
+	"cmds": {
+		"sign": {
+			"filename": "",
+			"args": [],
+			"replace": [
+				{
+					"context": "header",
+					"src": "src_value",
+					"dst": "dst_value"
+				}
+			]
+		}
+	}
+}
