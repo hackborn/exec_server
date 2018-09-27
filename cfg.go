@@ -43,7 +43,7 @@ func (c Cfg) GetCmd(name string) (Cmd, error) {
 	if !ok {
 		return Cmd{}, errors.New("No command")
 	}
-	return ans, nil
+	return ans.copy(), nil
 }
 
 // ------------------------------------------------------------
@@ -53,6 +53,14 @@ type Cmd struct {
 	Filename string    `json:"filename,omitempty"`
 	Args     []string  `json:"args,omitempty"`
 	Replaces []Replace `json:"replace,omitempty"`
+}
+
+func (c Cmd) copy() Cmd {
+	ans := Cmd{Filename: c.Filename, Replaces: c.Replaces}
+	for _, a := range c.Args {
+		ans.Args = append(ans.Args, a)
+	}
+	return ans
 }
 
 // ------------------------------------------------------------

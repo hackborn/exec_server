@@ -30,7 +30,6 @@ func epRun(w http.ResponseWriter, r *http.Request) {
 	}
 	cmd_cfg = replaceHeaders(cmd_cfg, r)
 	fmt.Println("run cmd", name, "cfg", cmd_cfg)
-
 	var args []string
 	if cmd_cfg.Args != nil {
 		args = cmd_cfg.Args
